@@ -20,7 +20,7 @@ resource "azuread_service_principal_password" "SPN_password" {
 
 #assign role contributor to spn
 resource "azurerm_role_assignment" "interview-spn-role" {
-  scope                = data.azurerm_subscription.primary.id
+  scope                = azurerm_resource_group.interview-rg
   role_definition_name = "Contributor"
   principal_id        = azuread_service_principal.interview-spn.object_id
   skip_service_principal_aad_check = true
