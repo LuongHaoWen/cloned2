@@ -21,8 +21,17 @@ provider "azurerm" {
   features {
   }
   skip_provider_registration = true
-  subscription_id = "3c77aee9-6f8b-4f87-8ff4-1e85ca74f8be"
-   client_id       = "9161384c-2d13-4d4a-b31b-d4e039e90f1a"
-  client_secret   = "QS4jzDc.GCIVG9le~NnY~3U8~LxJbCbB3_"
+   subscription_id = "3c77aee9-6f8b-4f87-8ff4-1e85ca74f8be"
+  client_id       = "f88b968a-67da-49f5-bbb1-dc89c1079704"
+  client_secret   = "N-vIXLYeQl~~Rq.hVBMgNIJiIAgwONnWu9"
   tenant_id       = "cb051081-0828-4f81-b5ae-b6c75a0caa81"
+  
+   
+}
+
+provider "azuread"{
+
+
+ tenant_id = "cb051081-0828-4f81-b5ae-b6c75a0caa81"
+ 
 }

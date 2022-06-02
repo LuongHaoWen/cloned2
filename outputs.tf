@@ -1,3 +1,11 @@
+output "GHA-client-secret"{
+  value=azuread_application_password.GHA-client-secret
+  sensitive = true
+}
+
+
+
+
 output "SPN_username"{
   value = azuread_service_principal.interview-spn.application_id
   description = "interview SPN details"

@@ -1,10 +1,19 @@
 data "azuread_client_config" "current" {}
 data "azurerm_subscription" "primary" {
 }
+
+
+
+
 resource "azuread_application" "interview-app" {
-  display_name = "interview-app"
+  display_name = "interview-app-hw-1st-june"
   owners       = [data.azuread_client_config.current.object_id]
 }
+
+
+
+
+
 #create interview-spn
 resource "azuread_service_principal" "interview-spn" {
   application_id               = azuread_application.interview-app.application_id
@@ -20,7 +29,7 @@ resource "azuread_service_principal_password" "SPN_password" {
 
 #assign role contributor to spn
 resource "azurerm_role_assignment" "interview-spn-role" {
-  scope                = azurerm_resource_group.interview-rg
+  scope                = azurerm_resource_group.interview-rg.id
   role_definition_name = "Contributor"
   principal_id        = azuread_service_principal.interview-spn.object_id
   skip_service_principal_aad_check = true
